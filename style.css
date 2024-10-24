@@ -2,7 +2,9 @@
     --bg-green: linear-gradient(90deg, rgba(4, 57, 46, 1) 0%, rgba(0, 153, 102, 1) 100%);
     --text-gold: rgb(255, 217, 0);
     --text-white: white;
-
+    --bg-brown: linear-gradient(90deg, rgba(99, 61, 0, 1) 0%, rgba(149, 93, 0, 1) 100%);
+    --bg-red: linear-gradient(90deg, rgb(39, 0, 0) 0%, rgb(149, 0, 0) 100%);
+    --bg-model: #0e110eaf;
 }
 
 body {
@@ -14,7 +16,15 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    font-family: Poppins;
     
+
+
+}
+
+
+.start-btn:active ,.submitbtn:active{
+    transform: translateY(0.125rem);
 
 }
 
@@ -40,7 +50,7 @@ body {
     margin: 10px;
     font-weight: bold;
     display: flex;
-    
+
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
@@ -63,16 +73,117 @@ body {
 
 }
 
-.game {
+#game {
+
 
     display: grid;
-  grid-template-columns: repeat(3, 100px); /* 3 columns of equal width */
-  grid-template-rows: repeat(3, 100px);    /* 3 rows of equal height */
-  gap: 10px; /* Space between grid items */
-  background: var(--text-white);
- 
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--bg-brown);
+
+
+}
+
+.grid-item {
+    background: white;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .instructions {
-    background: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+
+}
+
+.start-btn {
+
+    cursor: pointer;
+    color: white;
+    background: black;
+    border: 0.5px solid white;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: 10rem;
+    font-size: 1rem;
+
+}
+
+.model {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-model);
+
+}
+
+.model-container {
+    background: var(--bg-red);
+
+    width: 40%;
+    height: 60%;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: center;
+
+
+
+
+
+}
+
+.model-form {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+input{
+    margin-top: 2rem;
+    
+}
+
+.person-name{
+
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: 10rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.submitbtn{
+
+    cursor: pointer;
+    color: black;
+    background: white;
+    
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: 10rem;
+    font-size: 1rem;
+
 }
