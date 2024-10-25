@@ -13,17 +13,20 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    font-family: Poppins;
-    
+    font-family: Poppins , sans-serif;
+    margin: 0;
+
 
 
 }
 
 
-.start-btn:active ,.submitbtn:active{
+.start-btn:active,
+.submitbtn:active {
     transform: translateY(0.125rem);
 
 }
@@ -60,25 +63,13 @@ body {
 }
 
 
-.circle {
-
-    width: 1.5rem;
-
-
-}
-
-.cross {
-
-    width: 1.5rem;
-
-}
 
 #game {
 
 
     display: grid;
-    grid-gap: 0.5rem;
-    padding: 0.5rem;
+    grid-gap: 0.3rem;
+    padding: 0.3rem;
     height: 25rem;
     width: 25rem;
     border-radius: 0.5rem;
@@ -92,10 +83,10 @@ body {
     background: white;
     border-radius: 0.4rem;
     cursor: pointer;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .instructions {
@@ -146,9 +137,6 @@ body {
     justify-content: center;
 
 
-
-
-
 }
 
 .model-form {
@@ -161,12 +149,13 @@ body {
 
 }
 
-input{
+input {
     margin-top: 2rem;
-    
+
 }
 
-.person-name{
+.person-name1,
+.person-name2{
 
     border-radius: 2rem;
     padding: 0.5rem 1rem;
@@ -175,15 +164,59 @@ input{
     font-weight: bold;
 }
 
-.submitbtn{
+.submitbtn {
 
     cursor: pointer;
     color: black;
     background: white;
-    
+
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     width: 10rem;
     font-size: 1rem;
 
+}
+
+
+/* Media Queries */
+@media (max-width: 1100px) {
+    #game {
+        width: 18.75rem;
+        height: 18.75rem;
+    }
+    body{
+        align-content: center;
+       
+    }
+
+    .model-container {
+        text-align: center;
+        height: 60%;
+        width: 80%;
+    }
+
+    input {
+        width: 10rem;
+    }
+}
+
+
+
+.circle {
+
+    
+    background-image: url('./circle.png');
+   
+
+}
+
+.cross {
+ 
+   
+    background-image: url('./cross.png');
+    
+}
+
+.cross,.circle{
+    background-size: cover;
 }

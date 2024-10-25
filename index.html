@@ -11,60 +11,62 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="players-info">
       <h1>Tic Tac Toe</h1>
 
       <div class="player1-info">
-        <img class="circle" src="./circle.png" />
-        <span>Player1 :</span>
-        <span> 0 </span>
+        <img src="./cross.png" style="width: 1.5rem;" />
+        <span id="player1name">Player1 </span> :
+        <span id="player1score"> 0 </span>
       </div>
 
       <div class="player2-info">
-        <img class="cross" src="./cross.png" />
-        <span>Player1 :</span>
-        <span>0</span>
+        <img src="./circle.png" style="width: 1.5rem;" />
+        <span id="player2name">Player2 </span> :
+        <span id="player2score">0</span>
       </div>
     </div>
 
     <div id="game">
-      <div id="square1" class="grid-item">1</div>
-      <div id="square2" class="grid-item">2</div>
-      <div id="square3" class="grid-item">3</div>
-      <div id="square4" class="grid-item">4</div>
-      <div id="square5" class="grid-item">5</div>
-      <div id="square6" class="grid-item">6</div>
-      <div id="square7" class="grid-item">7</div>
-      <div id="square8" class="grid-item">8</div>
-      <div id="square9" class="grid-item">9</div>
+      <div id="square1" class="grid-item"></div>
+      <div id="square2" class="grid-item"></div>
+      <div id="square3" class="grid-item"></div>
+      <div id="square4" class="grid-item"></div>
+      <div id="square5" class="grid-item"></div>
+      <div id="square6" class="grid-item"></div>
+      <div id="square7" class="grid-item"></div>
+      <div id="square8" class="grid-item"></div>
+      <div id="square9" class="grid-item"></div>
     </div>
 
     <div class="instructions">
-      <h3>Click The Button To Start</h3>
+      <h3 id="instructioninfo">Click The Button To Start</h3>
 
       <button class="start-btn">Start Gamey</button>
     </div>
-
-    
 
     <div class="model">
       <div class="model-container">
         <form class="model-form">
           <h2>Enter Player Name</h2>
-          <input type="text" class="person-name" placeholder="swathi" required />
-          <input type="text" class="person-name" placeholder="Anand" required/>
-          <input type="submit" class="submitbtn" value="Start Game">
-
+          <input
+            type="text"
+            class="person-name1"
+            placeholder="Enter  player Name"
+            required
+          />
+          <input
+            type="text"
+            class="person-name2"
+            placeholder="Enter  player Name"
+            required
+          />
+          <input type="submit" class="submitbtn" value="Start Game" />
         </form>
-        
       </div>
     </div>
-
-    
   </body>
-
- 
-
 </html>
