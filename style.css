@@ -79,7 +79,7 @@ body {
 
 }
 
-.grid-item {
+.square {
     background: white;
     border-radius: 0.4rem;
     cursor: pointer;
@@ -112,14 +112,28 @@ body {
 
 }
 
+.start-btn2{
+    display: block;
+
+    display: none;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+    background: black;
+    border: 0.5px solid white;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: 10rem;
+    font-size: 1rem;
+
+}
+
 .model {
 
     display: flex;
     justify-content: center;
     align-items: center;
     display: none;
-
-
     position: absolute;
     width: 100vw;
     height: 100vh;

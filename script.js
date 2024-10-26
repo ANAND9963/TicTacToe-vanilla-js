@@ -1,4 +1,4 @@
-const matrix = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+let matrix = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 
 const scenarious = [
   [0, 1, 2],
@@ -22,7 +22,7 @@ let player = [
   },
 ];
 
-let count =0;
+let count = 0;
 
 let isCircleNext = true;
 
@@ -36,71 +36,83 @@ const player2infoEl = document.getElementById("player2name");
 const player1scoreEl = document.getElementById("player1score");
 const player2scoreEl = document.getElementById("player2score");
 const form = document.querySelector(".model-form");
-const gridEl = document.querySelectorAll(".grid-item");
+const gridEl = document.querySelectorAll(".square");
+const gridresetbtnEl = document.querySelector(".start-btn2");
 
 const instructEl = document.getElementById("instructioninfo");
+
+const resetGame = () => {
+  gridEl.forEach((el, Index) => {
+    el.classList = "square";
+  });
+
+  matrix = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+
+  hasGameWon = false;
+  isCircleNext = true;
+  count = 0;
+
+  
+
+};
+
+gridresetbtnEl.addEventListener("click", () => {
+  resetGame();
+  instructEl.innerHTML = `${player[0]["name"]}'s turn`;
+});
 
 const checkToWin = () => {
   scenarious.map((scenario, Index) => {
     if (matrix[scenario[0]] != 2) {
       let first = matrix[scenario[0]];
-      
 
       if (
         matrix[scenario[1]] === matrix[scenario[0]] &&
         matrix[scenario[2]] === matrix[scenario[1]]
       ) {
-        hasGameWon === true;
+        hasGameWon = true;
 
         count++;
-
         if (first === 0) {
           instructEl.innerHTML = `${player[0]["name"]}'s won`;
-          player[0]["score"] =count ;
-          player1scoreEl.innerHTML =player[0]["score"] ;
+          player[0]["score"] += count;
+          player1scoreEl.innerHTML = player[0]["score"];
           
+
         } else {
           instructEl.innerHTML = `${player[1]["name"]}'s won`;
-          player[1]["score"] =count ;
-          player2scoreEl.innerHTML =player[1]["score"] ;
+          player[1]["score"] += count;
+          player2scoreEl.innerHTML = player[1]["score"];
+          
+
         }
 
-        resetGame();
+
+      }
+
+      if (!matrix.includes(2) && hasGameWon === false) {
+        instructEl.innerHTML = "it's a tie";
       }
     }
-    
   });
 };
 
 const addSquares = () => {
-  if (hasGameWon) return;
-
   gridEl.forEach((el, Index) => {
     el.addEventListener("click", () => {
-        console.log(Index);
-      if (Index > 8) {
+      if (hasGameWon || matrix[Index] !== 2) return;
 
-       
-        
-
-        hasGameWon === false;
-        instructEl.innerHTML = "it's a tie";
-        el.class = "grid-item";
+      if (isCircleNext) {
+        el.classList.add("cross");
+        instructEl.innerHTML = `${player[1]["name"]}'s turn`;
+        matrix[Index] = 0;
       } else {
-        if (isCircleNext) {
-          el.classList.add("cross");
-          instructEl.innerHTML = `${player[1]["name"]}'s turn`;
-          matrix[Index] = 0;
-          
-        } else {
-          el.classList.add("circle");
-          instructEl.innerHTML = `${player[0]["name"]}'s turn`;
-          matrix[Index] = 1;
-          
-        }
-        isCircleNext = (!isCircleNext);
-        checkToWin();
+        el.classList.add("circle");
+        instructEl.innerHTML = `${player[0]["name"]}'s turn`;
+        matrix[Index] = 1;
       }
+      isCircleNext = !isCircleNext;
+      checkToWin();
     });
   });
 };
@@ -108,6 +120,9 @@ const addSquares = () => {
 const startGame = () => {
   startbtnEl.addEventListener("click", () => {
     modelEl.style.display = "flex";
+    resetGame();
+    player[0]["score"] = 0;
+    player[1]["score"] = 0;
   });
   player1El.addEventListener("change", (e) => {
     e.preventDefault();
@@ -126,13 +141,13 @@ const startGame = () => {
     player1scoreEl.innerHTML = player[0].score;
     player2infoEl.innerHTML = player[1].name;
     player2scoreEl.innerHTML = player[1].score;
-    player1El.value="";
-    player2El.value="";
-
+    player1El.value = "";
+    player2El.value = "";
+    
+    
+    gridresetbtnEl.style.display = "block";
     startbtnEl.innerHTML = "Restart Gamey";
-
     instructEl.innerHTML = `${player[0]["name"]}'s turn`;
-
     addSquares();
   });
 };
