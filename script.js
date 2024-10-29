@@ -63,7 +63,7 @@ gridresetbtnEl.addEventListener("click", () => {
 
 const checkToWin = () => {
   scenarious.map((scenario, Index) => {
-    if (matrix[scenario[0]] != 2) {
+    if (matrix[scenario[0]] !== 2) {
       let first = matrix[scenario[0]];
 
       if (
